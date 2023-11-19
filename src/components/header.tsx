@@ -8,7 +8,7 @@ type Props = {};
 
 function Header({}: Props) {
   return (
-    <div className="flex p-2  md:p-6 items-center w-full justify-between text-font-secondary bg-background ">
+    <div className="flex p-2  md:p-6 items-center w-full justify-between text-font-secondary  sticky top-0 backdrop-blur-2xl z-50 md:h-24 h-16   ">
       <div className="text-font-secondary flex gap-3 md:gap-10 items-center w-full max-w-[700px]">
         <Link href="/">
           <Image
