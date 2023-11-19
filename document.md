@@ -7,8 +7,9 @@
  - Added metatags , title and favicon
  - Added some assets like images , icons and gifs 
  - Created header UI and added elements like logo , search bar , profile icon 
- - created craousel for the main-page which is scrolling on every 3s using react hooks (useEffect, useState and useRef) 
+ - created carousel for the main-page which is scrolling on every 3s using react hooks (useEffect, useState and useRef) 
  - added responsiveness to the design
+ - Added [sidemenu](./src/components/sections/menu.tsx) to the application including and done layout improvements
 
    
 
@@ -19,5 +20,6 @@ Note:
 
 - The static json data of movies is stored in `/movies.json` and accquired from internet which contains top 50 movies details including imdb rank , title , description , image , rating , year , genre , duration , trailer link , cast , director , etc. 
 - All `page.tsx` files will be `server side rendered` .
+  
 
 

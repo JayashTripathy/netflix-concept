@@ -90,7 +90,7 @@ function TopMoviesStrip({}: Props) {
               opacity: currIndex === index ? 1 : 0.6,
             }}
           >
-            <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent"></div>
+            <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent "></div>
             <div className="absolute bottom-0 font-bold p-3">
               {movie.title}
               <div className="text-xs  text-gray-500 text-normal ">
