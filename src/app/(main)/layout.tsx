@@ -1,7 +1,7 @@
 
 
 import React from "react";
-import Menu from "@/components/sections/menu";
+import Menu from "@/components/menu";
 
 type Props = {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ function MainLayout({ children }: Props) {
     >
       <Menu />
 
-      <div className="bg-secondary  md:rounded-[50px_0_0_0] h-full   overflow-hidden  snap-x snap-mandatory flex-1   ">
+      <div className="bg-secondary  md:rounded-[50px_0_0_0] h-full   overflow-x-hidden  snap-x snap-mandatory flex-1   ">
         {children}
       </div>
     </div>

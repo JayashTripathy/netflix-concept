@@ -1,4 +1,4 @@
-enum MovieGenre {
+export enum MovieGenre {
   Drama = "Drama",
   Crime = "Crime",
   Action = "Action",
@@ -29,7 +29,7 @@ export type Movie = {
   trailer: string;
   trailer_embed_link: string;
   trailer_youtube_id: string;
-  genre: String[];
+  genre: string[];
   director: string[];
   writers: string[];
   imdbid: string;

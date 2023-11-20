@@ -2,7 +2,7 @@
 import { Movie } from "@/types/movies";
 import React, { useEffect, useRef, useState } from "react";
 import moviesData from "@/movies.json";
-import { get } from "http";
+import { getGenreStyle } from "@/utils/getGenreStyle";
 
 type Props = {};
 
@@ -69,38 +69,42 @@ function TopMoviesStrip({}: Props) {
   }, [currIndex]);
 
   return (
-    
-      <div
-        className="flex    overflow-auto w-[full] p-6 md:p-12  scroll-smooth "
-        onScroll={handleScroll}
-        ref={movieContainerRef}
-        style={{
-          gap: `${gap}px`,
-        }}
-      >
-        {bannerMoviesData.map((movie, index) => (
-          <div
-            className=" shrink-0 rounded-2xl overflow-hidden   h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out  "
-            key={movie.imdbid}
-            style={{
-              background: `url(${movie.big_image})`,
-              width: `${bannerWidth}px`,
-              scale: currIndex === index ? 1.05 : 1,
-              zIndex: currIndex === index ? 10 : 0,
-              opacity: currIndex === index ? 1 : 0.6,
-            }}
-          >
-            <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent "></div>
-            <div className="absolute bottom-0 font-bold p-3">
-              {movie.title}
-              <div className="text-xs  text-gray-500 text-normal ">
-                {movie.genre[0]}
-              </div>
+    <div
+      className="flex    overflow-auto w-[full] p-6 md:p-12  scroll-smooth "
+      onScroll={handleScroll}
+      ref={movieContainerRef}
+      style={{
+        gap: `${gap}px`,
+      }}
+    >
+      {bannerMoviesData.map((movie, index) => (
+        <div
+          className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
+          key={movie.imdbid}
+          style={{
+            background: `url(${movie.big_image})`,
+            backgroundPosition: "center",
+            width: `${bannerWidth}px`,
+            scale: currIndex === index ? 1.05 : 1,
+            zIndex: currIndex === index ? 10 : 0,
+            opacity: currIndex === index ? 1 : 0.6,
+          }}
+        >
+          <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
+          <div className="absolute bottom-0 font-bold p-3">
+            {movie.title}
+            <div
+              className="text-xs  text-gray-500 text-normal "
+              style={{
+                color: getGenreStyle(movie.genre[0])?.background,
+              }}
+            >
+              {movie.genre[0]}
             </div>
           </div>
-        ))}
-      </div>
-    
+        </div>
+      ))}
+    </div>
   );
 }
 

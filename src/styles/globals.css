@@ -22,3 +22,20 @@ body {
   background-color: var(--background);
   color: var(--font-primary);
 }
+
+
+
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+  background: var(--font-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  -webkit-border-radius: 1ex;
+ 
+}
+
+
+

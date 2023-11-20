@@ -1,4 +1,4 @@
-import Header from "@/components/sections/header";
+import Header from "@/components/header";
 import "@/styles/globals.css";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
