@@ -20,7 +20,7 @@ function Top10Movies({}: Props) {
             <div
               className="md:h-80  h-60 aspect-[9/16] rounded-3xl relative flex items-end shadow-xl "
               style={{
-                background: `url(${movie.big_image})`,
+                background: `url(${movie.image})`,
                 backgroundPosition: "center",
                
               }}

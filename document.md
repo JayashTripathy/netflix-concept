@@ -20,7 +20,14 @@
   - Rn an idea popped how about we assign some custom styles to the genres and then wherever we are showing genre tags we can show that particular tag in there unique style
   - Since we have already create [MovieEnum](./src/types/movies.ts) lets generate some styles using chat gpt and then assign it to the genres
   - created [constants](./src/constants.ts) and stored all the genre color codes in there 
-  - created a helper function to get this color from the constants and stored in utils folder
+  - created a helper function to get this color from the constants and created [utils](./src/utils/getGenreStyle.ts) folder and stored there so that we can use that anywhere in our application
+  - fixed some calculations issues that was in carousel of topMoviesStrip
+
+### Day 4 - `21 NOV 2023`
+  
+  - Started creating  main movie page [movieid] which will be dynamic  and will be server side rendered
+  - [movieid] should be SEO friendly so it will have 2 file `page.tsx` and `client.tsx` in the page.tsx we will add the `title`, `image` and the `description` to the  meta tags and in the client.tsx we will make the UI of the page so that when any one share the link of the movie it will beautifully display link.
+  
    
 
 
@@ -40,3 +47,5 @@
     
 - Stackoverflow - to customize the scrollbar of the application- [https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit](https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit)
  
+
+[movieid]: (./pages/movie/[movieid].tsx)
