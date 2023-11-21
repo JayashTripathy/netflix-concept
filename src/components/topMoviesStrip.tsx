@@ -3,6 +3,7 @@ import { Movie } from "@/types/movies";
 import React, { useEffect, useRef, useState } from "react";
 import moviesData from "@/movies.json";
 import { getGenreStyle } from "@/utils/getGenreStyle";
+import Link from "next/link";
 
 type Props = {};
 
@@ -81,7 +82,7 @@ function TopMoviesStrip({}: Props) {
           <>
             <div
               className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
-              key={movie.imdbid}
+              key={`movie/${movie.imdbid}`}
               style={{
                 background: `url(${movie.big_image})`,
                 backgroundPosition: "center",
@@ -105,9 +106,10 @@ function TopMoviesStrip({}: Props) {
                 </div>
               </div>
             </div>
-            <div
+            <Link
+              href={`movie/${movie.imdbid}`}
               className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10 opacity-0   "
-              key={movie.imdbid}
+              key={`movie/${movie.imdbid}`}
               style={{
                 background: `url(${movie.big_image})`,
                 backgroundPosition: "center",
@@ -130,10 +132,10 @@ function TopMoviesStrip({}: Props) {
                   {movie.genre[0]}
                 </div>
               </div>
-            </div>
+            </Link>
             <div
               className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
-              key={movie.imdbid}
+              key={`movie/${movie.imdbid}`}
               style={{
                 background: `url(${movie.big_image})`,
                 backgroundPosition: "center",
@@ -159,9 +161,10 @@ function TopMoviesStrip({}: Props) {
             </div>
           </>
         ) : (
-          <div
+          <Link
+            href={`movie/${movie.imdbid}`}
             className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
-            key={movie.imdbid}
+            key={`movie/${movie.imdbid}`}
             style={{
               background: `url(${movie.image})`,
               backgroundPosition: "center",
@@ -184,7 +187,7 @@ function TopMoviesStrip({}: Props) {
                 {movie.genre[0]}
               </div>
             </div>
-          </div>
+          </Link>
         )
       )}
     </div>
