@@ -61,6 +61,8 @@
     
     Now  [movieid] is statically generated (SSG) 
 
+  - Created UI of the [movieid] page and added some responsiveness to it
+
 
 
 
