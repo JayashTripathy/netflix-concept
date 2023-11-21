@@ -59,7 +59,7 @@
         ○  (Static)  automatically rendered as static HTML (uses no initial props)    
         ●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
     
-    Now  [movieid] is statically generated (SSG)
+    Now  [movieid] is statically generated (SSG) 
 
 
 
