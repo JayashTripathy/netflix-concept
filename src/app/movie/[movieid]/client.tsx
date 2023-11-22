@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LucidePlayCircle, LucideShare2 } from "lucide-react";
 import { getGenreStyle } from "@/utils/getGenreStyle";
 import Badge from "@/components/ui/badge";
+import BackButton from "@/components/ui/backButton";
 
 type Props = {
   movieid: string;
@@ -34,6 +35,7 @@ function Client({ movieid }: Props) {
     <div className="relative w-full md:h-[calc(100%-6rem)] h-[calc(100%-4rem)]     ">
       <div className=" md:w-3/4 w-full px-4  py-10  mx-auto h-full z-10 relative  flex   flex-col md:flex-row items-center gap-3 overflow-auto pb-20 no-scrollbar  ">
         <div className=" md:py-8  md:pr-8 w-full">
+          <BackButton className="mb-2" />
           <div className="text-3xl md:text-5xl font-bold">{movie?.title}</div>
           <div className="flex  mt-3  gap-2  w-full overflow-auto flex-wrap">
             {movie?.genre.map(

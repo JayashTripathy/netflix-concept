@@ -67,34 +67,34 @@
 
   - Completed all the work of [movieid] page 
   - Created [bottomNav] for mobile devices
-  - Created Genre page and the data inside extracted from [movies.json] using `map` function we grouped it by genre and then displayed it on the page
-  - Used tailwindcss `grid` to display the movies in the grid format and made it responsive
-  - Created a [badge] UI component and reused it in main page and genre page
+  - Created Genre page and the data inside extracted from [movies.json] using `map` function grouped it by genre and then displayed it on the page
+  - Displayed the movies in the grid format and made it responsive in [allGenre] page
+  - Created a [badge] UI component and reused it in main page and [genre] page
   - Optimized by `memoizing` the group genre data by using `useMemo` hook in [allGenre] page
   - Optimized main page usng using `debounce` on scroll event of the carousel so that it will not fire on every scroll event
-  - Created a utility function [getGroupedGenreMovies] to get all the grouped movies data and stored in utils so that we can use it in the [allGenre] as well as in [genre] page .
+  - Created a utility function [getGroupedGenreMovies] to get all the grouped movies data and stored in utils so that we can use it in the [allGenre] as well as in [movieList] page .
+  - Added [backButton] component for back navigation and used it on  [movieid] and [genre] page
 
 
 
 
 
 
+
+
+## Resources and code snippets i used: 
+    
+    
+-  UI design will be inspired by [https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service](https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service)
+- Stackoverflow - to customize the scrollbar of the application- [https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit](https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit)
+- tailwindMerge npm package - to merge tailwind classes - [https://www.npmjs.com/package/tailwind-merge](https://www.npmjs.com/package/tailwind-merge) 
 ## Note:
-
-- UI design will be inspired by [https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service](https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service)
 
 - The static json data of movies is stored in [movies.json] and accquired from internet which contains top 50 movies details including imdb rank , title , description , image , rating , year , genre , duration , trailer link , cast , director , etc. 
 - All `page.tsx` files will be `server side rendered`.
 
 
 
-  
-
-
-## Resources and code snippets i used: 
-    
-    
-- Stackoverflow - to customize the scrollbar of the application- [https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit](https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit)
  
 [movieid]: ./src//app/(main)/page.tsx
 [movies.json]: ./src/movies.json
@@ -103,3 +103,5 @@
 [allGenre]: ./src/app/(main)/allGenre/page.tsx
 [genre]: ./src/app/genreType/[type]/client.tsx
 [getGroupedGenreMovies]: ./src/utils/getGoupedGenreMovies.ts
+[movieList]: ./src/components/movieList.tsx
+[backButton]: ./src/components/ui/backButton.tsx

@@ -1,5 +1,6 @@
 "use client";
 import MovieList from "@/components/movieList";
+import BackButton from "@/components/ui/backButton";
 import { GroupedGenre } from "@/types/movies";
 import { getGenreStyle } from "@/utils/getGenreStyle";
 import { getGoupedGenreMovies } from "@/utils/getGoupedGenreMovies";
@@ -16,13 +17,14 @@ function client({ genreType }: Props) {
 
   return (
     <div className=" md:w-3/4 mx-auto  md:h-full h-[calc(100%-7.5rem)]  flex flex-col   ">
-      <div className="w-full  bg-secondary md:h-[85%] h-full md:rounded-3xl   md:p-6 p-4 flex flex-col justify-between ">
+      <div className="w-full  bg-secondary md:h-[85%] h-full md:rounded-3xl   md:p-6 p-4 flex flex-col  ">
         <div
-          className=" text-2xl md:text-6xl font-bold md:pb-7 pb-5"
+          className=" text-2xl md:text-6xl font-bold md:pb-7 pb-5 flex gap-3 items-center "
           style={{
             color: color,
           }}
         >
+          <BackButton />
           {genreType}
         </div>
 
