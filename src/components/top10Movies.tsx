@@ -2,6 +2,8 @@
 import React from "react";
 import moviesData from "@/movies.json";
 import Link from "next/link";
+import Badge from "./ui/badge";
+import { getGenreStyle } from "@/utils/getGenreStyle";
 
 type Props = {};
 
@@ -40,7 +42,15 @@ function Top10Movies({}: Props) {
                 {ind + 1}
               </div>
             </div>
-            <div className=" w-28 mb-3 ">{movie.title}</div>
+
+            <div className=" w-28 mb-3 h-full flex flex-col  justify-end">
+              <Badge
+                title={movie.genre[0]}
+                color={getGenreStyle(movie.genre[0])?.background}
+                className=" mt-4  rounded-[]  border-0 font-bold  px-0"
+              />
+              {movie.title}
+            </div>
           </Link>
         ))}
       </div>

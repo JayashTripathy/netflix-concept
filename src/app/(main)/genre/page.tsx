@@ -35,7 +35,7 @@ function page({}: Props) {
             return (
               <div
                 key={genre}
-                className=" h-[300px] rounded-3xl flex  p-4 font-bold relative overflow-hidden brightness-75 hover:brightness-100 transition-all duration-100 ease-in-out cursor-pointer shadow-2xl  group "
+                className=" md:h-[300px] h-[200px] rounded-3xl flex  p-4 font-bold relative overflow-hidden brightness-75 hover:brightness-100 transition-all duration-100 ease-in-out cursor-pointer shadow-2xl  group "
                 style={{
                   border: `2px solid ${style?.background || "gray"}`,
                 }}
@@ -54,9 +54,11 @@ function page({}: Props) {
                       <div className=" absolute  -bottom-20 right-8 -rotate-12 h-full w-full flex justify-end items-end group-hover:-translate-y-5   transition-all duration-200 ease-in-out drop-shadow-2xl ">
                         <div
                           key={movie.id}
-                          className="flex flex-col gap-2   w-[150px] aspect-[9/16] shadow-3xl drop-shadow-2xl rounded-3xl  "
+                          className="flex flex-col gap-2 w-[100px]  md:w-[150px] aspect-[9/16] shadow-3xl drop-shadow-2xl rounded-3xl  "
                           style={{
                             backgroundImage: `url(${movie.image})`,
+                            backgroundSize: "cover",
+                            backgroundRepeat: "no-repeat",
                             backgroundPosition: "center",
                             transformOrigin: "bottom center",
                             transform: `rotate(${ind * 10}deg)`,

@@ -4,6 +4,7 @@ import MoviesData from "@/movies.json";
 import Link from "next/link";
 import { LucidePlayCircle, LucideShare2 } from "lucide-react";
 import { getGenreStyle } from "@/utils/getGenreStyle";
+import Badge from "@/components/ui/badge";
 
 type Props = {
   movieid: string;
@@ -38,25 +39,30 @@ function Client({ movieid }: Props) {
             {movie?.genre.map(
               (genre, index) =>
                 index <= 1 && (
-                  <div
-                    key={genre}
-                    className="  rounded-full p-1 px-2 text-xs border-[1px] border-solid   "
-                    style={{
-                      borderColor: getGenreStyle(genre)?.background,
-
-                      color: getGenreStyle(genre)?.background,
-                    }}
-                  >
-                    {genre}
-                  </div>
+                  <Badge
+                    title={genre}
+                    color={getGenreStyle(genre)?.background}
+                  />
                 )
             )}
-            <div className="bg-secondary  rounded-full p-1 px-2 text-xs border-[1px] border-solid border-gray-600 whitespace-nowrap  ">
-              Directed By {movie?.director}{" "}
-            </div>
-            <div className="bg-secondary  rounded-full p-1 px-2 text-xs border-[1px] border-solid border-gray-600 whitespace-nowrap  ">
-              Written By {movie?.writers[0].split("(")[0]}{" "}
-            </div>
+            {[
+              {
+                title: movie?.director[0],
+                placeholder: "Directed By",
+              },
+              {
+                title: movie?.writers[0].split("(")[0],
+                placeholder: "Witten By",
+              },
+            ].map(
+              (item, ind) =>
+                item && (
+                  <Badge
+                    key={ind}
+                    title={item.placeholder + " " + item.title}
+                  />
+                )
+            )}
           </div>
           <div className="py-3 text-gray-500">{movie?.description}</div>
           <div className="flex gap-2">

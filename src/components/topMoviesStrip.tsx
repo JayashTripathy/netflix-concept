@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import moviesData from "@/movies.json";
 import { getGenreStyle } from "@/utils/getGenreStyle";
 import Link from "next/link";
+import Badge from "./ui/badge";
 
 type Props = {};
 
@@ -143,14 +144,11 @@ function TopMoviesStrip({}: Props) {
               <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
               <div className="absolute bottom-0 font-bold p-3">
                 {movie.title}
-                <div
-                  className="text-xs  text-gray-500 text-normal "
-                  style={{
-                    color: getGenreStyle(movie.genre[0])?.background,
-                  }}
-                >
-                  {movie.genre[0]}
-                </div>
+                <Badge
+                  title={movie.genre[0]}
+                  color={getGenreStyle(movie.genre[0])?.background}
+                  className=" mt-4  rounded-[]  border-0 font-bold"
+                />
               </div>
             </div>
           </>
