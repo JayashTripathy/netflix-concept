@@ -35,3 +35,7 @@ export type Movie = {
   imdbid: string;
   imdb_link: string;
 };
+
+export type GroupedGenre = {
+  [key: string]: Movie[];
+};

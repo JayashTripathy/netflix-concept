@@ -72,6 +72,7 @@
   - Created a [badge] UI component and reused it in main page and genre page
   - Optimized by `memoizing` the group genre data by using `useMemo` hook in [allGenre] page
   - Optimized main page usng using `debounce` on scroll event of the carousel so that it will not fire on every scroll event
+  - Created a utility function [getGroupedGenreMovies] to get all the grouped movies data and stored in utils so that we can use it in the [allGenre] as well as in [genre] page .
 
 
 
@@ -100,3 +101,5 @@
 [bottomNav]: ./src/components/navigation/bottomNav.tsx
 [badge]: ./src/components/ui/badge.tsx
 [allGenre]: ./src/app/(main)/allGenre/page.tsx
+[genre]: ./src/app/genreType/[type]/client.tsx
+[getGroupedGenreMovies]: ./src/utils/getGoupedGenreMovies.ts

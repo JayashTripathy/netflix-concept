@@ -1,28 +1,16 @@
 import React, { useMemo } from "react";
-import { Movie } from "@/types/movies";
+import { GroupedGenre, Movie } from "@/types/movies";
 import MoviesData from "@/movies.json";
 import { getGenreStyle } from "@/utils/getGenreStyle";
 import Link from "next/link";
+import { getGoupedGenreMovies } from "@/utils/getGoupedGenreMovies";
 
 type Props = {};
-type GroupedGenre = {
-  [key: string]: Movie[];
-};
 
 function page({}: Props) {
-  const moviesByGenre: GroupedGenre = useMemo(() => {
-    const groupedMovies: GroupedGenre = {};
-    MoviesData.forEach((movie) => {
-      movie.genre.forEach((genre) => {
-        if (groupedMovies[genre]) {
-          groupedMovies[genre].push(movie);
-        } else {
-          groupedMovies[genre] = [movie];
-        }
-      });
-    });
-    return groupedMovies;
-  }, [MoviesData]);
+  const moviesByGenre: GroupedGenre = useMemo(getGoupedGenreMovies, [
+    MoviesData,
+  ]);
 
   return (
     <div className=" md:p-10 p-2 pb-20">
@@ -48,7 +36,7 @@ function page({}: Props) {
                 <div
                   className="h-full w-full absolute inset-0"
                   style={{
-                    background: `url(${movies[0].image})`,
+                    background: `url(${movies[0].thumbnail})`,
                     filter: "blur(100px)",
                   }}
                 ></div>
@@ -70,6 +58,7 @@ function page({}: Props) {
                             backgroundPosition: "center",
                             transformOrigin: "bottom center",
                             transform: `rotate(${ind * 10}deg)`,
+                            
                           }}
                         ></div>
                       </div>
