@@ -5,6 +5,7 @@ import moviesData from "@/movies.json";
 import { getGenreStyle } from "@/utils/getGenreStyle";
 import Link from "next/link";
 import Badge from "./ui/badge";
+import { debounce } from "lodash";
 
 type Props = {};
 
@@ -20,7 +21,7 @@ function TopMoviesStrip({}: Props) {
     return shuffledArray.slice(0, count);
   }
 
-  const handleScroll = (e: any) => {
+  const handleScroll = debounce((e: any) => {
     const element = e.target;
 
     const left = element.scrollLeft;
@@ -30,7 +31,7 @@ function TopMoviesStrip({}: Props) {
 
     const nextIndex = offset > width / 2 ? index + 1 : index;
     setCurrIndex(nextIndex);
-  };
+  }, 20);
 
   const getBannerWidth = () => {
     const screenWidth = window.innerWidth;
@@ -58,7 +59,7 @@ function TopMoviesStrip({}: Props) {
           movieContainerRef.current.scrollLeft = (currIndex + 1) * width;
         }
       }
-    }, 3000);
+    }, 4000);
     setBannerWidth(getBannerWidth());
 
     return () => {
@@ -68,120 +69,67 @@ function TopMoviesStrip({}: Props) {
 
   return (
     <div
-      className="flex    overflow-auto w-[full]   scroll-smooth md:p-6 p-3 no-scrollbar"
+      className="flex    overflow-auto   scroll-smooth md:p-6 p-3 no-scrollbar"
       onScroll={handleScroll}
       ref={movieContainerRef}
     >
-      {bannerMoviesData.map((movie, index) =>
-        index === 9 ? (
-          <>
+      {bannerMoviesData.map((movie, index) => (
+        <Link
+          href={`movie/${movie.imdbid}`}
+          className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
+          key={index}
+          style={{
+            background: `url(${movie.image})`,
+            backgroundPosition: "center",
+            width: `${bannerWidth}px`,
+            scale: currIndex === index ? 1.05 : 1,
+            zIndex: currIndex === index ? 10 : 0,
+            opacity: currIndex === index ? 1 : 0.6,
+            margin: `${margin / 2}px`,
+          }}
+        >
+          <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
+          <div className="absolute bottom-0 font-bold p-3">
+            {movie.title}
             <div
-              className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
-              key={`movie/${movie.imdbid}`}
+              className="text-xs  text-gray-500 text-normal "
               style={{
-                background: `url(${movie.big_image})`,
-                backgroundPosition: "center",
-                width: `${bannerWidth}px`,
-                scale: currIndex === index ? 1.05 : 1,
-                zIndex: currIndex === index ? 10 : 0,
-                opacity: currIndex === index ? 1 : 0.6,
-                margin: `${margin / 2}px`,
+                color: getGenreStyle(movie.genre[0])?.background,
               }}
             >
-              <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
-              <div className="absolute bottom-0 font-bold p-3">
-                {movie.title}
-                <div
-                  className="text-xs  text-gray-500 text-normal "
-                  style={{
-                    color: getGenreStyle(movie.genre[0])?.background,
-                  }}
-                >
-                  {movie.genre[0]}
-                </div>
-              </div>
+              {movie.genre[0]}
             </div>
-            <Link
-              href={`movie/${movie.imdbid}`}
-              className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10 opacity-0   "
-              key={`movie/${movie.imdbid}`}
-              style={{
-                background: `url(${movie.big_image})`,
-                backgroundPosition: "center",
-                width: `${bannerWidth}px`,
-                scale: currIndex === index ? 1.05 : 1,
-                zIndex: currIndex === index ? 10 : 0,
-                opacity: 0,
-                margin: `${margin / 2}px`,
-              }}
-            >
-              <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
-              <div className="absolute bottom-0 font-bold p-3">
-                {movie.title}
-                <div
-                  className="text-xs  text-gray-500 text-normal "
-                  style={{
-                    color: getGenreStyle(movie.genre[0])?.background,
-                  }}
-                >
-                  {movie.genre[0]}
-                </div>
-              </div>
-            </Link>
-            <div
-              className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
-              key={`movie/${movie.imdbid}`}
-              style={{
-                background: `url(${movie.big_image})`,
-                backgroundPosition: "center",
-                width: `${bannerWidth}px`,
-                scale: currIndex === index ? 1.05 : 1,
-                zIndex: currIndex === index ? 10 : 0,
-                opacity: 0,
-                margin: `${margin / 2}px`,
-              }}
-            >
-              <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
-              <div className="absolute bottom-0 font-bold p-3">
-                {movie.title}
-                <Badge
-                  title={movie.genre[0]}
-                  color={getGenreStyle(movie.genre[0])?.background}
-                  className=" mt-4  rounded-[]  border-0 font-bold"
-                />
-              </div>
-            </div>
-          </>
-        ) : (
-          <Link
-            href={`movie/${movie.imdbid}`}
-            className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10  "
-            key={`movie/${movie.imdbid}`}
-            style={{
-              background: `url(${movie.image})`,
-              backgroundPosition: "center",
-              width: `${bannerWidth}px`,
-              scale: currIndex === index ? 1.05 : 1,
-              zIndex: currIndex === index ? 10 : 0,
-              opacity: currIndex === index ? 1 : 0.6,
-              margin: `${margin / 2}px`,
-            }}
-          >
-            <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
-            <div className="absolute bottom-0 font-bold p-3">
-              {movie.title}
-              <div
-                className="text-xs  text-gray-500 text-normal "
-                style={{
-                  color: getGenreStyle(movie.genre[0])?.background,
-                }}
-              >
-                {movie.genre[0]}
-              </div>
-            </div>
-          </Link>
-        )
-      )}
+          </div>
+        </Link>
+      ))}
+
+      {/* mock data  */}
+      <>
+        <div
+          className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10 opacity-0 hidden md:block  "
+          style={{
+            width: `${bannerWidth}px`,
+            margin: `${margin / 2}px`,
+          }}
+        >
+          <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl  "></div>
+          <div className="absolute bottom-0 font-bold p-3">
+            <div className="text-xs  text-gray-500 text-normal "></div>
+          </div>
+        </div>
+        <div
+          className=" shrink-0 rounded-3xl    h-[300px] relative shadow-xl  snap-start transition-all duration-200 ease-in-out z-10 opacity-0 hidden md:block   "
+          style={{
+            width: `${bannerWidth}px`,
+            margin: `${margin / 2}px`,
+          }}
+        >
+          <div className="absolute h-full w-full top-0 bg-gradient-to-t from-black  to-transparent rounded-3xl   "></div>
+          <div className="absolute bottom-0 font-bold p-3">
+            <div className="text-xs  text-gray-500 text-normal "></div>
+          </div>
+        </div>
+      </>
     </div>
   );
 }

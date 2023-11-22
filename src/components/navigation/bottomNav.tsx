@@ -19,7 +19,7 @@ const menuItems = [
   },
   {
     name: "Genre",
-    path: "/genre",
+    path: "/allGenre",
     icon: <Zap />,
   },
 ];
@@ -34,14 +34,11 @@ function BottomNav({}: Props) {
   };
   return (
     <div className="md:hidden fixed h-16 bottom-0 left-0 z-40 flex  w-full justify-evenly backdrop-blur-3xl py-3 ">
-     
-        
-        {menuItems.map((item) => (
-          <Link href={item.path} className={getLinkClass(item.path)}>
-            {item.icon} 
-          </Link>
-        ))}
-     
+      {menuItems.map((item, ind) => (
+        <Link href={item.path} key={ind} className={getLinkClass(item.path)}>
+          {item.icon}
+        </Link>
+      ))}
     </div>
   );
 }

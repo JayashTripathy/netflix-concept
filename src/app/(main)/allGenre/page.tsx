@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Movie } from "@/types/movies";
 import MoviesData from "@/movies.json";
 import { getGenreStyle } from "@/utils/getGenreStyle";
+import Link from "next/link";
 
 type Props = {};
 type GroupedGenre = {
@@ -9,16 +10,19 @@ type GroupedGenre = {
 };
 
 function page({}: Props) {
-  const moviesByGenre: GroupedGenre = {};
-  MoviesData.forEach((movie) => {
-    movie.genre.forEach((genre) => {
-      if (moviesByGenre[genre]) {
-        moviesByGenre[genre].push(movie);
-      } else {
-        moviesByGenre[genre] = [movie];
-      }
+  const moviesByGenre: GroupedGenre = useMemo(() => {
+    const groupedMovies: GroupedGenre = {};
+    MoviesData.forEach((movie) => {
+      movie.genre.forEach((genre) => {
+        if (groupedMovies[genre]) {
+          groupedMovies[genre].push(movie);
+        } else {
+          groupedMovies[genre] = [movie];
+        }
+      });
     });
-  });
+    return groupedMovies;
+  }, [MoviesData]);
 
   return (
     <div className=" md:p-10 p-2 pb-20">
@@ -33,7 +37,8 @@ function page({}: Props) {
           .map(({ genre, movies }) => {
             const style = getGenreStyle(genre);
             return (
-              <div
+              <Link
+                href={`/genreType/${genre}`}
                 key={genre}
                 className=" md:h-[300px] h-[200px] rounded-3xl flex  p-4 font-bold relative overflow-hidden brightness-75 hover:brightness-100 transition-all duration-100 ease-in-out cursor-pointer shadow-2xl  group "
                 style={{
@@ -51,7 +56,10 @@ function page({}: Props) {
                 {movies.map(
                   (movie, ind) =>
                     ind <= 2 && (
-                      <div className=" absolute  -bottom-20 right-8 -rotate-12 h-full w-full flex justify-end items-end group-hover:-translate-y-5   transition-all duration-200 ease-in-out drop-shadow-2xl ">
+                      <div
+                        key={ind}
+                        className=" absolute  -bottom-20 right-8 -rotate-12 h-full w-full flex justify-end items-end group-hover:-translate-y-5   transition-all duration-200 ease-in-out drop-shadow-2xl "
+                      >
                         <div
                           key={movie.id}
                           className="flex flex-col gap-2 w-[100px]  md:w-[150px] aspect-[9/16] shadow-3xl drop-shadow-2xl rounded-3xl  "
@@ -67,7 +75,7 @@ function page({}: Props) {
                       </div>
                     )
                 )}
-              </div>
+              </Link>
             );
           })}
       </div>

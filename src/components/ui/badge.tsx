@@ -9,7 +9,6 @@ type Props = {
 };
 
 function Badge({ title, color, className }: Props) {
-  console.log(color);
   return (
     <div
       className={twMerge(

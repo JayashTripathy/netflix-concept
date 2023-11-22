@@ -70,6 +70,8 @@
   - Created Genre page and the data inside extracted from [movies.json] using `map` function we grouped it by genre and then displayed it on the page
   - Used tailwindcss `grid` to display the movies in the grid format and made it responsive
   - Created a [badge] UI component and reused it in main page and genre page
+  - Optimized by `memoizing` the group genre data by using `useMemo` hook in [allGenre] page
+  - Optimized main page usng using `debounce` on scroll event of the carousel so that it will not fire on every scroll event
 
 
 
@@ -81,7 +83,7 @@
 - UI design will be inspired by [https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service](https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service)
 
 - The static json data of movies is stored in [movies.json] and accquired from internet which contains top 50 movies details including imdb rank , title , description , image , rating , year , genre , duration , trailer link , cast , director , etc. 
-- All `page.tsx` files will be `server side rendered` .
+- All `page.tsx` files will be `server side rendered`.
 
 
 
@@ -93,7 +95,8 @@
     
 - Stackoverflow - to customize the scrollbar of the application- [https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit](https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit)
  
+[movieid]: ./src//app/(main)/page.tsx
 [movies.json]: ./src/movies.json
-[movieid]: ./src/app/movie/[movieid].tsx
 [bottomNav]: ./src/components/navigation/bottomNav.tsx
 [badge]: ./src/components/ui/badge.tsx
+[allGenre]: ./src/app/(main)/allGenre/page.tsx

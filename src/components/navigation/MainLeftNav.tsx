@@ -20,7 +20,7 @@ const menuItems = [
   },
   {
     name: "Genre",
-    path: "/genre",
+    path: "/allGenre",
     icon: <Zap />,
   },
 ];
@@ -39,7 +39,11 @@ function MainLeftNav({}: Props) {
       <h1 className="">Menu</h1>
       <br />
       {menuItems.map((item, ind) => (
-        <Link href={item.path} key={item.name} className={getLinkClass(item.path)}>
+        <Link
+          href={item.path}
+          key={item.name}
+          className={getLinkClass(item.path)}
+        >
           {item.icon} {item.name}
         </Link>
       ))}

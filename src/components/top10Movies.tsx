@@ -21,6 +21,7 @@ function Top10Movies({}: Props) {
         {top10Movies.map((movie, ind) => (
           <Link
             href={`movie/${movie.imdbid}`}
+            key={ind}
             className="flex gap-2 bg-[#161616] p-2 rounded-3xl shadow-2xl items-end "
           >
             <div
