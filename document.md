@@ -66,16 +66,12 @@
 ### Day 5 - `22 NOV 2023`
 
   - Completed all the work of [movieid] page 
+  - Created Genre page and the data inside extracted from [moviesData.json] using `filter` and `map` function we grouped it by genre and then displayed it on the page
+  - Used tailwindcss `grid` to display the movies in the grid format and made it responsive
 
 
 
 
-
-
-
-
-  
-   
 
 
 ## Note:
@@ -84,6 +80,7 @@
 
 - The static json data of movies is stored in `/movies.json` and accquired from internet which contains top 50 movies details including imdb rank , title , description , image , rating , year , genre , duration , trailer link , cast , director , etc. 
 - All `page.tsx` files will be `server side rendered` .
+
 
 
   

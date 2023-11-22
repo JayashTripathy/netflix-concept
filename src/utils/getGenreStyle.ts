@@ -6,4 +6,5 @@ export const getGenreStyle = (genre: string) => {
       background: curGenre.hex,
     };
   }
+  return undefined
 };

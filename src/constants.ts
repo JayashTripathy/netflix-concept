@@ -2,79 +2,78 @@ import { MovieGenre } from "@/types/movies";
 
 export const GENRES = [
   {
-    name: "genres.Drama",
+    name: MovieGenre.Drama,
     hex: "#FF2100",
     id: MovieGenre.Drama,
   },
   {
-    name: "genres.Crime",
+    name: MovieGenre.Crime,
     hex: "#D70000",
     id: MovieGenre.Crime,
   },
   {
-    name: "genres.Action",
+    name: MovieGenre.Action,
     hex: "#53FFAA",
     id: MovieGenre.Action,
   },
   {
-    name: "genres.Biography",
+    name: MovieGenre.Biography,
     hex: "#FFBA00",
     id: MovieGenre.Biography,
   },
   {
-    name: "genres.History",
+    name: MovieGenre.History,
     hex: "#A333D5",
     id: MovieGenre.History,
   },
   {
-    name: "genres.Adventure",
+    name: MovieGenre.Adventure,
     hex: "#0000E0",
     id: MovieGenre.Adventure,
   },
   {
-    name: "genres.Western",
+    name: MovieGenre.Western,
     hex: "#000000",
     id: MovieGenre.Western,
   },
   {
-    name: "genres.Romance",
+    name: MovieGenre.Romance,
     hex: "#F490E1",
     id: MovieGenre.Romance,
   },
   {
-    name: "genres.Fantasy",
+    name: MovieGenre.Fantasy,
     hex: "#05FFF9",
     id: MovieGenre.Fantasy,
   },
   {
-    name: "genres.SciFi",
+    name: MovieGenre.SciFi,
     hex: "#00008B",
     id: MovieGenre.SciFi,
   },
   {
-    name: "genres.Music",
+    name: MovieGenre.Music,
     hex: "#FF7F00",
     id: MovieGenre.Music,
   },
   {
-    name: "genres.Mystery",
+    name: MovieGenre.Mystery,
     hex: "#FBC731",
     id: MovieGenre.Mystery,
   },
   {
-    name: "genres.Animation",
+    name: MovieGenre.Animation,
     hex: "#0074FF",
     id: MovieGenre.Animation,
   },
   {
-    name: "genres.Comedy",
+    name: MovieGenre.Comedy,
     hex: "#05FFF9",
     id: MovieGenre.Comedy,
   },
   {
-    name: "genres.War",
+    name: MovieGenre.War,
     hex: "#F2FF0C",
     id: MovieGenre.War,
   },
-
 ];

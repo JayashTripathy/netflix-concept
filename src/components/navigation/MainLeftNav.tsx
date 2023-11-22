@@ -38,8 +38,8 @@ function MainLeftNav({}: Props) {
       <br />
       <h1 className="">Menu</h1>
       <br />
-      {menuItems.map((item) => (
-        <Link href={item.path} className={getLinkClass(item.path)}>
+      {menuItems.map((item, ind) => (
+        <Link href={item.path} key={item.name} className={getLinkClass(item.path)}>
           {item.icon} {item.name}
         </Link>
       ))}
