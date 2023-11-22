@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { HomeIcon, ListVideo, Zap } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 type Props = {};
 
@@ -24,26 +24,26 @@ const menuItems = [
   },
 ];
 
-function Menu({}: Props) {
+function BottomNav({}: Props) {
   const pathname = usePathname();
 
   const getLinkClass = (path: string) => {
     return pathname === path
-      ? "flex gap-2 hover:bg-secondary text-primary text-2xl items-center p-3 rounded-3xl cursor-pointer transition-all duration-100 ease-in-out"
+      ? "flex gap-2 hover:bg-secondary text-primary items-center p-3 rounded-3xl cursor-pointer transition-all duration-100 ease-in-out"
       : "flex gap-2 hover:bg-secondary text-2xl items-center  p-3 rounded-3xl cursor-pointer transition-all duration-100 ease-in-out";
   };
   return (
-    <div className="md:block hidden max-w-[200px] w-full mt-8 mx-8 text-font-secondary">
-      <br />
-      <h1 className="">Menu</h1>
-      <br />
-      {menuItems.map((item) => (
-        <Link href={item.path} className={getLinkClass(item.path)}>
-          {item.icon} {item.name}
-        </Link>
-      ))}
+    <div className="md:hidden sticky h-16 bottom-0 left-0 z-40 flex  w-full justify-evenly backdrop-blur-3xl ">
+     
+        
+        {menuItems.map((item) => (
+          <Link href={item.path} className={getLinkClass(item.path)}>
+            {item.icon} 
+          </Link>
+        ))}
+     
     </div>
   );
 }
 
-export default Menu;
+export default BottomNav;

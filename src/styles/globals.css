@@ -24,8 +24,6 @@ body {
   color: var(--font-primary);
 }
 
-
-
 ::-webkit-scrollbar {
   height: 6px;
   width: 6px;
@@ -33,10 +31,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  background: black;
   -webkit-border-radius: 1rem;
- 
 }
 
-
-
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

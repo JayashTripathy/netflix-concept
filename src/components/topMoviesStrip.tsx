@@ -65,15 +65,9 @@ function TopMoviesStrip({}: Props) {
     };
   }, [currIndex]);
 
-  console.log(currIndex);
-  console.log(
-    movieContainerRef.current?.scrollLeft,
-    movieContainerRef.current?.scrollWidth
-  );
-
   return (
     <div
-      className="flex    overflow-auto w-[full]   scroll-smooth md:p-6 p-3 "
+      className="flex    overflow-auto w-[full]   scroll-smooth md:p-6 p-3 no-scrollbar"
       onScroll={handleScroll}
       ref={movieContainerRef}
     >

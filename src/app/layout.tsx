@@ -1,4 +1,5 @@
 import Header from "@/components/header";
+import BottomNav from "@/components/navigation/bottomNav";
 import "@/styles/globals.css";
 import { Poppins } from "next/font/google";
 const poppins = Poppins({
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <Header />
         {children}
+        <BottomNav/>
       </body>
     </html>
   );

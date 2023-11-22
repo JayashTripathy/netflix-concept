@@ -3,6 +3,7 @@ import React from "react";
 import MoviesData from "@/movies.json";
 import Link from "next/link";
 import { LucidePlayCircle, LucideShare2 } from "lucide-react";
+import { getGenreStyle } from "@/utils/getGenreStyle";
 
 type Props = {
   movieid: string;
@@ -10,21 +11,63 @@ type Props = {
 
 function Client({ movieid }: Props) {
   const movie = MoviesData.find((movie) => movie.imdbid === movieid);
+
+  const movieDetails = [
+    {
+      name: "Rank",
+      value: movie?.rank,
+      className: "bg-primary text-red-200",
+    },
+    {
+      name: "IMDB",
+      value: movie?.rating,
+      className: "bg-yellow-500 text-yellow-200",
+    },
+    {
+      name: "Year",
+      value: movie?.year,
+      className: "bg-slate-100 text-slate-800",
+    },
+  ];
   return (
-    <div className="relative w-full md:h-[calc(100%-6rem)] h-[calc(100%-4rem)] overflow-auto     ">
-      <div className=" w-3/4 py-10  mx-auto h-full z-10 relative  flex   flex-col md:flex-row items-center gap-3">
-        <div className="h-full md:py-8 flex-1 md:pr-8">
+    <div className="relative w-full md:h-[calc(100%-6rem)] h-[calc(100%-4rem)]     ">
+      <div className=" md:w-3/4 w-full px-4  py-10  mx-auto h-full z-10 relative  flex   flex-col md:flex-row items-center gap-3 overflow-auto pb-20 no-scrollbar  ">
+        <div className=" md:py-8  md:pr-8 w-full">
           <div className="text-3xl md:text-5xl font-bold">{movie?.title}</div>
-          <div className="py-3 text-font-secondary">{movie?.description}</div>
-          <div className="flex gap-2">
-            <div className="text-xl whitespace-nowrap text-primary flex gap-2 justify-center items-center border-2 border-solid border-primary p-3 px-5 rounded-3xl hover:bg-secondary ">
-              Watch Now <LucidePlayCircle className=" text-primary" size={40} />
+          <div className="flex  mt-3  gap-2  w-full overflow-auto flex-wrap">
+            {movie?.genre.map(
+              (genre, index) =>
+                index <= 1 && (
+                  <div
+                    key={genre}
+                    className="  rounded-full p-1 px-2 text-xs border-[1px] border-solid   "
+                    style={{
+                      borderColor: getGenreStyle(genre)?.background,
+
+                      color: getGenreStyle(genre)?.background,
+                    }}
+                  >
+                    {genre}
+                  </div>
+                )
+            )}
+            <div className="bg-secondary  rounded-full p-1 px-2 text-xs border-[1px] border-solid border-gray-600 whitespace-nowrap  ">
+              Directed By {movie?.director}{" "}
             </div>
-            <div className="text-xl  bg-secondary flex gap-2 justify-center items-center  p-3 px-5 rounded-3xl ">
-              Share <LucideShare2 />
+            <div className="bg-secondary  rounded-full p-1 px-2 text-xs border-[1px] border-solid border-gray-600 whitespace-nowrap  ">
+              Written By {movie?.writers[0].split("(")[0]}{" "}
             </div>
           </div>
-          <br />
+          <div className="py-3 text-gray-500">{movie?.description}</div>
+          <div className="flex gap-2">
+            <div className=" whitespace-nowrap text-primary flex gap-2 justify-center items-center border-2 border-solid border-primary md:p-3 p-1 md:px-5 px-3 rounded-3xl hover:bg-secondary md:text-base text-sm ">
+              Watch Now <LucidePlayCircle className=" text-primary" size={25} />
+            </div>
+            {/* <div className="  bg-secondary flex gap-2 justify-center items-center  md:p-3 p-1 md:px-5 rounded-3xl md:text-base text-sm  ">
+              Share <LucideShare2 size={25} />
+            </div> */}
+          </div>
+
           <div className="  overflow-hidden max-h-[15rem] aspect-video my-6">
             <iframe
               className="rounded-3xl  h-full w-full"
@@ -32,30 +75,20 @@ function Client({ movieid }: Props) {
             ></iframe>
           </div>
         </div>
-        <div className="flex md:flex-col gap-3 h-full py-3 w-full md:w-auto ">
-          <div className="rounded-xl text-secondary font-bold justify-center items-center flex gap-1 flex-col w-20  h-20 bg-amber-500 ">
-            RANK
-            <div className=" w-full text-2xl text-center text-amber-200 block text23xl before:absolute before:w-full relative before:content-[''] before:inset-0 before:h-[1px] before:bg-secondary before:-translate-y-[5px] before:opacity-30 ">
-              {movie?.rank}
-            </div>{" "}
-          </div>
-          <Link
-            href={movie?.imdb_link as unknown as URL}
-            className="rounded-xl text-secondary font-bold justify-center items-center flex gap-1 flex-col w-20  h-20 bg-yellow-500 "
-          >
-            {" "}
-            IMDB
-            <div className="w-full text-center text-yellow-200 block text-2xl before:absolute before:w-full relative before:content-[''] before:inset-0 before:h-[1px] before:bg-secondary before:-translate-y-[5px] before:opacity-30 ">
-              {movie?.rating}{" "}
+        <div className="flex md:flex-col gap-3 md:h-full md:py-3 w-full md:w-auto  ">
+          {movieDetails.map((detail, index) => (
+            <div
+              key={index}
+              className={`rounded-xl font-bold justify-center items-center flex gap-1 flex-col md:w-20  md:h-20 h-16 w-16 md:text-lg ${detail.className}`}
+            >
+              {detail.name}
+              <div
+                className={`w-full text-center  block  before:absolute before:w-full relative before:content-[''] before:inset-0 before:h-[1px] before:bg-secondary before:-translate-y-[5px] before:opacity-30 `}
+              >
+                {detail.value}
+              </div>
             </div>
-          </Link>
-          <div className="rounded-xl text-secondary font-bold justify-center items-center flex gap-1 flex-col w-20  h-20 bg-slate-500 ">
-            {" "}
-            YEAR
-            <div className="w-full text-center text-slate-200 block text-2xl before:absolute before:w-full relative before:content-[''] before:inset-0 before:h-[1px] before:bg-secondary before:-translate-y-[5px] before:opacity-30 ">
-              {movie?.year}
-            </div>
-          </div>
+          ))}
         </div>
         <div
           className="aspect-[9/16]  max-h-full h-full  rounded-3xl shadow-2xl md:block hidden "

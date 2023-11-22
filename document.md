@@ -63,6 +63,10 @@
 
   - Created UI of the [movieid] page and added some responsiveness to it
 
+### Day 5 - `22 NOV 2023`
+
+  - Completed all the work of [movieid] page 
+
 
 
 
