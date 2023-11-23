@@ -24,7 +24,7 @@ function client({ genreType }: Props) {
             color: color,
           }}
         >
-          <BackButton />
+        <BackButton />
           {genreType}
         </div>
 

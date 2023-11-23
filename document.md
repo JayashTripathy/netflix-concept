@@ -76,6 +76,10 @@
   - Added [backButton] component for back navigation and used it on  [movieid] and [genre] page
 
 
+### Day 6 - `23 NOV 2023`
+
+  - Added instagram and whatsapp share buttons to the [movieid] page
+
 
 
 
@@ -88,6 +92,10 @@
 -  UI design will be inspired by [https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service](https://dribbble.com/shots/23042599-Netflix-Concept-UI-Netflix-streaming-service)
 - Stackoverflow - to customize the scrollbar of the application- [https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit](https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit)
 - tailwindMerge npm package - to merge tailwind classes - [https://www.npmjs.com/package/tailwind-merge](https://www.npmjs.com/package/tailwind-merge) 
+- react-share npm package - to add social share buttons - [https://www.npmjs.com/package/react-share](https://www.npmjs.com/package/react-share)
+
+
+
 ## Note:
 
 - The static json data of movies is stored in [movies.json] and accquired from internet which contains top 50 movies details including imdb rank , title , description , image , rating , year , genre , duration , trailer link , cast , director , etc. 

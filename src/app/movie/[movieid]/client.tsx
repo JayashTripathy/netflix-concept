@@ -1,11 +1,13 @@
 "use client";
 import React from "react";
 import MoviesData from "@/movies.json";
-import Link from "next/link";
 import { LucidePlayCircle, LucideShare2 } from "lucide-react";
 import { getGenreStyle } from "@/utils/getGenreStyle";
 import Badge from "@/components/ui/badge";
 import BackButton from "@/components/ui/backButton";
+import { WhatsappShareButton } from "react-share";
+import { FaWhatsapp } from "react-icons/fa";
+import { usePathname } from "next/navigation";
 
 type Props = {
   movieid: string;
@@ -13,6 +15,7 @@ type Props = {
 
 function Client({ movieid }: Props) {
   const movie = MoviesData.find((movie) => movie.imdbid === movieid);
+  const pathname = usePathname();
 
   const movieDetails = [
     {
@@ -35,8 +38,10 @@ function Client({ movieid }: Props) {
     <div className="relative w-full md:h-[calc(100%-6rem)] h-[calc(100%-4rem)]     ">
       <div className=" md:w-3/4 w-full px-4  py-10  mx-auto h-full z-10 relative  flex   flex-col md:flex-row items-center gap-3 overflow-auto pb-20 no-scrollbar  ">
         <div className=" md:py-8  md:pr-8 w-full">
-          <BackButton className="mb-2" />
-          <div className="text-3xl md:text-5xl font-bold">{movie?.title}</div>
+          <div className="text-3xl md:text-5xl font-bold flex gap-2">
+            <BackButton className="mb-2" />
+            {movie?.title}
+          </div>
           <div className="flex  mt-3  gap-2  w-full overflow-auto flex-wrap">
             {movie?.genre.map(
               (genre, index) =>
@@ -69,11 +74,16 @@ function Client({ movieid }: Props) {
           <div className="py-3 text-gray-500">{movie?.description}</div>
           <div className="flex gap-2">
             <div className=" whitespace-nowrap text-primary flex gap-2 justify-center items-center border-2 border-solid border-primary md:p-3 p-1 md:px-5 px-3 rounded-3xl hover:bg-secondary md:text-base text-sm ">
-              Watch Now <LucidePlayCircle className=" text-primary" size={25} />
+              Watch Now <LucidePlayCircle className=" text-primary" size={25} />{" "}
             </div>
-            {/* <div className="  bg-secondary flex gap-2 justify-center items-center  md:p-3 p-1 md:px-5 rounded-3xl md:text-base text-sm  ">
-              Share <LucideShare2 size={25} />
-            </div> */}
+            <WhatsappShareButton
+              title={movie?.title}
+              url={`https://netflix-concept.vercel.app/${pathname}`}
+            >
+              <div className="  bg-secondary flex gap-2 justify-center items-center  md:p-3 p-1 md:px-5 px-3 rounded-3xl md:text-base text-sm  relative">
+                Share <FaWhatsapp size={30} />
+              </div>
+            </WhatsappShareButton>
           </div>
 
           <div className="  overflow-hidden max-h-[15rem] aspect-video my-6">

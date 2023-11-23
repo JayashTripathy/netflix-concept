@@ -22,49 +22,50 @@ function page({}: Props) {
             genre,
             movies: moviesByGenre[genre],
           }))
-          .map(({ genre, movies }) => {
+          .map(({ genre, movies }, ind) => {
             const style = getGenreStyle(genre);
             return (
-              <Link
-                href={`/genreType/${genre}`}
-                key={genre}
-                className=" md:h-[300px] h-[200px] rounded-3xl flex  p-4 font-bold relative overflow-hidden brightness-75 hover:brightness-100 transition-all duration-100 ease-in-out cursor-pointer shadow-2xl  group "
-                style={{
-                  border: `2px solid ${style?.background || "gray"}`,
-                }}
-              >
-                <div
-                  className="h-full w-full absolute inset-0"
+              ind <= 5 && (
+                <Link
+                  href={`/genreType/${genre}`}
+                  key={genre}
+                  className=" md:h-[300px] h-[200px] rounded-3xl flex  p-4 font-bold relative overflow-hidden brightness-75 hover:brightness-100 transition-all duration-100 ease-in-out cursor-pointer shadow-2xl  group "
                   style={{
-                    background: `url(${movies[0].thumbnail})`,
-                    filter: "blur(100px)",
+                    border: `2px solid ${style?.background || "gray"}`,
                   }}
-                ></div>
-                <h1 className="md:text-4xl text-2xl">{genre}</h1>
-                {movies.map(
-                  (movie, ind) =>
-                    ind <= 2 && (
-                      <div
-                        key={ind}
-                        className=" absolute  -bottom-20 right-8 -rotate-12 h-full w-full flex justify-end items-end group-hover:-translate-y-5   transition-all duration-200 ease-in-out drop-shadow-2xl "
-                      >
+                >
+                  <div
+                    className="h-full w-full absolute inset-0"
+                    style={{
+                      background: `url(${movies[0].thumbnail})`,
+                      filter: "blur(100px)",
+                    }}
+                  ></div>
+                  <h1 className="md:text-4xl text-2xl">{genre}</h1>
+                  {movies.map(
+                    (movie, ind) =>
+                      ind <= 2 && (
                         <div
-                          key={movie.id}
-                          className="flex flex-col gap-2 w-[100px]  md:w-[150px] aspect-[9/16] shadow-3xl drop-shadow-2xl rounded-3xl  "
-                          style={{
-                            backgroundImage: `url(${movie.image})`,
-                            backgroundSize: "cover",
-                            backgroundRepeat: "no-repeat",
-                            backgroundPosition: "center",
-                            transformOrigin: "bottom center",
-                            transform: `rotate(${ind * 10}deg)`,
-                            
-                          }}
-                        ></div>
-                      </div>
-                    )
-                )}
-              </Link>
+                          key={ind}
+                          className=" absolute  -bottom-20 right-8 -rotate-12 h-full w-full flex justify-end items-end group-hover:-translate-y-5   transition-all duration-200 ease-in-out drop-shadow-2xl "
+                        >
+                          <div
+                            key={movie.id}
+                            className="flex flex-col gap-2 w-[100px]  md:w-[150px] aspect-[9/16] shadow-3xl drop-shadow-2xl rounded-3xl  "
+                            style={{
+                              backgroundImage: `url(${movie.image})`,
+                              backgroundSize: "cover",
+                              backgroundRepeat: "no-repeat",
+                              backgroundPosition: "center",
+                              transformOrigin: "bottom center",
+                              transform: `rotate(${ind * 10}deg)`,
+                            }}
+                          ></div>
+                        </div>
+                      )
+                  )}
+                </Link>
+              )
             );
           })}
       </div>
