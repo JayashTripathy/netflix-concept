@@ -9,7 +9,7 @@ __Deployed Site__ - https://netflix-concept.vercel.app
 ## Functionalities 
 
 - Server side rendered optimized pages
-- Search engine-optimized pages  
+- Fully Search engine-optimized
    ![image](./public/readme/seo.png)
 
 - Minimal and user-friendly UI 
