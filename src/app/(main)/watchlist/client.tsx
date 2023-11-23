@@ -18,7 +18,13 @@ function client({}: Props) {
           WatchList
         </div>
 
-        <MovieList movies={watchListMovies} />
+        {watchListMovies.length > 0 ? (
+          <MovieList movies={watchListMovies} />
+        ) : (
+          <div className="  text-gray-500  text-left py-5 h-full w-full flex justify-center  ">
+            watchlist is empty{" "}
+          </div>
+        )}
       </div>
     </div>
   );

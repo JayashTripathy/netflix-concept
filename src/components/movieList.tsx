@@ -1,15 +1,28 @@
 "use client";
 import { Movie } from "@/types/movies";
-import React from "react";
+import React, { useState } from "react";
 import Badge from "./ui/badge";
 import Link from "next/link";
 import WatchListButton from "./ui/watchListButton";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 type Props = {
   movies: Movie[];
 };
 
 function MovieList({ movies }: Props) {
+  const [watchlist, setWatchList] = useLocalStorage<String[]>("watchlist", []);
+
+  const handleAdd = (id: string) => {
+    if (watchlist) setWatchList([...watchlist, id]);
+    else setWatchList([id]);
+  };
+  const handleRemove = (id: string) => {
+    if (watchlist) setWatchList(watchlist.filter((item) => item !== id));
+  };
+
+  console.log(watchlist);
+
   return (
     <div className=" flex flex-col gap-4  overflow-auto h-full">
       {movies.map((movie, ind) => (
@@ -53,7 +66,11 @@ function MovieList({ movies }: Props) {
                   )}
                 </div>
               </div>
-              <WatchListButton movie={movie} />
+              <WatchListButton
+                onAdd={() => handleAdd(movie.imdbid)}
+                onRemove={() => handleRemove(movie.imdbid)}
+                isOn={watchlist?.includes(movie.imdbid) || false}
+              />
             </div>
           </div>
         </Link>

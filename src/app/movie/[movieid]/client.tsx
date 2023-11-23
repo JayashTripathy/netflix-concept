@@ -8,7 +8,6 @@ import BackButton from "@/components/ui/backButton";
 import { WhatsappShareButton } from "react-share";
 import { FaWhatsapp } from "react-icons/fa";
 import { usePathname } from "next/navigation";
-import WatchListButton from "@/components/ui/watchListButton";
 
 type Props = {
   movieid: string;
@@ -41,7 +40,7 @@ function Client({ movieid }: Props) {
         <div className=" md:py-8  md:pr-8 w-full">
           <div className="text-2xl md:text-5xl font-bold flex gap-2  md:gap-5 items-center ">
             <BackButton className="mb-2" />
-            {movie?.title} {movie && <WatchListButton movie={movie} />}
+            {movie?.title}
           </div>
           <div className="flex  mt-3  gap-2  w-full overflow-auto flex-wrap">
             {movie?.genre.map(

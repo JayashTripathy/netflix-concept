@@ -85,6 +85,7 @@
     the [watchlist] page
   - Created a [watchListButton] component which will be used to `add` and `remove` the movies from the `watchlist` and used it in [movieid] page and [movieList] component
   - Created [watchlist] page and displayed the movies which are added to the watchlist using `useLocalStorage` hook using `watchlist` as a key
+  - Fixed logic of [watchListButton] component to add and remove the movies from the watchlist
   
 
 
