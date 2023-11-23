@@ -48,6 +48,7 @@ function Client({ movieid }: Props) {
               (genre, index) =>
                 index <= 1 && (
                   <Badge
+                    key={index}
                     title={genre}
                     color={getGenreStyle(genre)?.background}
                   />

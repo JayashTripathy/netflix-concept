@@ -12,7 +12,7 @@ type Props = {
 function MovieList({ movies }: Props) {
   return (
     <div className=" flex flex-col gap-4  overflow-auto h-full">
-      {movies.map((movie) => (
+      {movies.map((movie, ind) => (
         <Link
           href={`/movie/${movie.imdbid}`}
           key={movie.id}
@@ -33,24 +33,22 @@ function MovieList({ movies }: Props) {
                       placeholder: "Directed By",
                     },
                     {
+                      title: "•",
+                      placeholder: "",
+                    },
+                    {
                       title: movie?.writers[0].split("(")[0],
                       placeholder: "Witten By",
                     },
                   ].map(
                     (item, ind) =>
                       item && (
-                        <>
+                        <div key={ind}>
                           <Badge
-                            key={ind}
                             title={item.placeholder + " " + item.title}
                             className="text-xs md:text-sm border-0 text-gray-500 py-[1px] px-0 leading-4"
                           />
-                          {ind === 0 && (
-                            <span className=" -translate-y-[2px] text-gray-500 hidden md:block ">
-                              •
-                            </span>
-                          )}
-                        </>
+                        </div>
                       )
                   )}
                 </div>
