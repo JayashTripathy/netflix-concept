@@ -13,8 +13,8 @@ const menuItems = [
     icon: <HomeIcon />,
   },
   {
-    name: "My List",
-    path: "/mylist",
+    name: "watchlist",
+    path: "/watchlist",
     icon: <ListVideo />,
   },
   {

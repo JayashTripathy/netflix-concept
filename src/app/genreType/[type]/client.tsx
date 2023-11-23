@@ -17,7 +17,7 @@ function client({ genreType }: Props) {
 
   return (
     <div className=" md:w-3/4 mx-auto  md:h-full h-[calc(100%-7.5rem)]  flex flex-col   ">
-      <div className="w-full  bg-secondary md:h-[85%] h-full md:rounded-3xl   md:p-6 p-4 flex flex-col  ">
+      <div className="w-full  bg-secondary md:h-[85%] h-full md:rounded-3xl   md:p-6 py-4 px-2 flex flex-col  ">
         <div
           className=" text-2xl md:text-6xl font-bold md:pb-7 pb-5 flex gap-3 items-center "
           style={{

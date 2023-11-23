@@ -36,7 +36,7 @@
       ├ ○ /_not-found                          882 B          81.3 kB                       
       ├ ○ /genre                               145 B          80.5 kB                       
       ├ λ /movie/[movieid]                     145 B          80.5 kB                           
-      └ ○ /mylist                              144 B          80.5 kB                           
+      └ ○ /watchlist                              144 B          80.5 kB                           
 
       λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)                         
       ○  (Static)  automatically rendered as static HTML (uses no initial props)                         
@@ -54,7 +54,7 @@
         ├   ├ /movie/tt0068646                                           
         ├   ├ /movie/tt0468569                                           
         ├   └ [+47 more paths]                                           
-        └ ○ /mylist    
+        └ ○ /watchlist    
    
         ○  (Static)  automatically rendered as static HTML (uses no initial props)    
         ●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
@@ -78,10 +78,14 @@
 
 ### Day 6 - `23 NOV 2023`
 
-  - Added instagram and whatsapp share buttons to the [movieid] page
-
-
-
+  - Limited the number of genre to 6 in [allGenre] page , because it was taking too much time to load in old devices because of the image size 
+    (in future when we will use some api  we can use pagination and load more genres on scroll and also we can use `lazy loading` for images and use optimized images in the first place)
+  - Added whatsapp share button to the [movieid] page
+  - Now im gonna make the watchlist page and for that firstly ill create a custom `useLocalStorage` hook which will be used to store the ids of movies in the localstorage which will used to display the movies in 
+    the [watchlist] page
+  - Created a [watchListButton] component which will be used to `add` and `remove` the movies from the `watchlist` and used it in [movieid] page and [movieList] component
+  - Created [watchlist] page and displayed the movies which are added to the watchlist using `useLocalStorage` hook using `watchlist` as a key
+  
 
 
 
@@ -93,6 +97,7 @@
 - Stackoverflow - to customize the scrollbar of the application- [https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit](https://stackoverflow.com/questions/9664325/style-the-scrollbar-with-css-in-google-chrome-webkit)
 - tailwindMerge npm package - to merge tailwind classes - [https://www.npmjs.com/package/tailwind-merge](https://www.npmjs.com/package/tailwind-merge) 
 - react-share npm package - to add social share buttons - [https://www.npmjs.com/package/react-share](https://www.npmjs.com/package/react-share)
+
 
 
 
@@ -113,3 +118,6 @@
 [getGroupedGenreMovies]: ./src/utils/getGoupedGenreMovies.ts
 [movieList]: ./src/components/movieList.tsx
 [backButton]: ./src/components/ui/backButton.tsx
+[watchlist]: ./src/app/(main)/watchlist/page.tsx
+[useLocalStorage]: ./src/hooks/useLocalStorage.ts
+[watchListButton]: ./src/components/ui/watchListButton.tsx
