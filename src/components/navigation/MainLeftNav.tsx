@@ -41,11 +41,11 @@ function MainLeftNav({}: Props) {
 
   const getLinkClass = (path: string) => {
     return pathname === path
-      ? "flex gap-2 hover:bg-secondary text-primary text-2xl items-center p-3 rounded-3xl cursor-pointer transition-all duration-100 ease-in-out"
-      : "flex gap-2 hover:bg-secondary text-2xl items-center  p-3 rounded-3xl cursor-pointer transition-all duration-100 ease-in-out";
+      ? "flex gap-2  border-b-2 border-b-primary pb-1 hover:bg-secondary text-white text-2xl items-center   cursor-pointer transition-all duration-100 ease-in-out"
+      : "flex gap-2 hover:border-b-2 border-b-primary pb-1 text-2xl items-center  cursor-pointer transition-all duration-100 ease-in-out";
   };
   return (
-    <div className="md:flex flex-col gap-5 justify-center hidden  mt-8 mx-8 text-font-secondary ">
+    <div className="md:flex flex-col gap-10 justify-center hidden  mt-8 mx-8 text-font-secondary ">
 
       {menuItems.map((item, ind) => (
         <Link
