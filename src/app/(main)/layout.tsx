@@ -8,11 +8,11 @@ type Props = {
 function MainLayout({ children }: Props) {
   return (
     <div
-      className={` flex w-full overflow-hidden md:h-[calc(100%-6rem)] h-[calc(100%-4rem)]    `}
+      className={` flex w-full overflow-hidden md:h-full h-[calc(100%-4rem)]    `}
     >
       <MainLeftNav />
 
-      <div className="bg-secondary  md:rounded-[50px_0_0_0] h-full   overflow-x-hidden  snap-x snap-mandatory flex-1   ">
+      <div className="   h-full   overflow-x-hidden  snap-x snap-mandatory flex-1   ">
         {children}
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { HomeIcon, ListVideo, Zap } from "lucide-react";
+import { Clapperboard, Home, HomeIcon, ListVideo, Monitor, Plus, Search, Zap } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Main } from "next/document";
@@ -9,20 +9,31 @@ type Props = {};
 
 const menuItems = [
   {
-    name: "Home",
+    name: "Search",
+    path: "/search",
+    icon: <Search size={30} />,
+  },
+  {
+    name: "home",
     path: "/",
-    icon: <HomeIcon />,
+    icon: <Home size={30} />,
+  },
+  {
+    name: "movies",
+    path: "/movies",
+    icon: <Clapperboard  size={30} />,
+  },
+  {
+    name: "tvshows",
+    path: "/tvshows",
+    icon: <Monitor  size={30} />,
   },
   {
     name: "WatchList",
     path: "/watchlist",
-    icon: <ListVideo />,
+    icon: <Plus size={30} />,
   },
-  {
-    name: "Genre",
-    path: "/allGenre",
-    icon: <Zap />,
-  },
+ 
 ];
 
 function MainLeftNav({}: Props) {
@@ -34,17 +45,15 @@ function MainLeftNav({}: Props) {
       : "flex gap-2 hover:bg-secondary text-2xl items-center  p-3 rounded-3xl cursor-pointer transition-all duration-100 ease-in-out";
   };
   return (
-    <div className="md:block hidden max-w-[200px] w-full mt-8 mx-8 text-font-secondary">
-      <br />
-      <h1 className="">Menu</h1>
-      <br />
+    <div className="md:flex flex-col gap-5 justify-center hidden  mt-8 mx-8 text-font-secondary ">
+
       {menuItems.map((item, ind) => (
         <Link
           href={item.path}
           key={item.name}
-          className={getLinkClass(item.path)}
+          className={`${getLinkClass(item.path)} `}
         >
-          {item.icon} {item.name}
+          {item.icon} 
         </Link>
       ))}
     </div>
