@@ -1,6 +1,6 @@
 # New homepage that mimics netflix
 
-![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/4edad094-410c-41c3-9ad2-53bb2575b497)
+![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/51acab62-d5c8-4562-886a-aed48523b45e)
 
 ![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/a5c465e1-94dc-4ca4-92f9-abeb68b4da17)
 
