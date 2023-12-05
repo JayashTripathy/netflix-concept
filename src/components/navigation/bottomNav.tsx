@@ -8,6 +8,7 @@ import {
   Monitor,
   Plus,
   Search,
+  Shuffle,
   Zap,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
@@ -18,7 +19,7 @@ type Props = {};
 const menuItems = [
   {
     name: "Search",
-    path: "/search",
+    path: "/allGenre",
     icon: <Search size={30} />,
   },
   {
@@ -39,9 +40,10 @@ const menuItems = [
   {
     name: "WatchList",
     path: "/watchlist",
-    icon: <Plus size={30} />,
+    icon: <Shuffle size={30} />,
   },
 ];
+
 function BottomNav({}: Props) {
   const pathname = usePathname();
 

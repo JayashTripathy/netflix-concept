@@ -13,8 +13,8 @@ function page({}: Props) {
   ]);
 
   return (
-    <div className=" md:p-10 p-2 pb-20">
-      <h1 className="md:text-6xl text-4xl md:mb-10 my-6">Genres</h1>
+    <div className=" md:p-10 p-2 pb-20 md:pl-24 pt-20">
+      <h1 className="md:text-6xl text-4xl md:mb-10 my-6 md:mt-20">Genres</h1>
 
       <div className="grid lg:grid-cols-3 grid-cols-2 md:gap-4 gap-2 mt-4">
         {Object.keys(moviesByGenre)

@@ -2,14 +2,17 @@ import Top10Movies from "@/components/top10Movies";
 import TopMoviesStrip from "@/components/topMoviesStrip";
 import { Info, Play, PlayIcon, Plus } from "lucide-react";
 import Image from "next/image";
+import moviesData from "@/movies.json";
+import Link from "next/link";
+import MovieSlider from "@/components/movieSlider";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className=" w-screen md:pl-16 pb-20 md:pb-10">
       {/* <TopMoviesStrip />
       <Top10Movies /> */}
 
-      <div className="flex   w-full justify-between overflow-hidden h-[600px]   relative">
+      <div className="flex  justify-between overflow-hidden h-[600px]   relative">
         <div className="hidden md:relative bottom-0 md:flex flex-col  justify-end pl-20 z-10    pb-16">
           <div className="flex gap-2 justify-start items-center ">
             <Image
@@ -68,6 +71,18 @@ export default function Home() {
           <div className="hidden md:block md:absolute h-full w-full top-0 bg-gradient-to-r from-10% to-40%  from-black  to-transparent z-0"></div>
           <div className="absolute h-full w-full top-0 bg-gradient-to-t from-10% to-50%   from-black  to-transparent z-0"></div>
         </div>
+      </div>
+
+      <br />
+      <div className="p-4 md:p-8 w-full overflow-hidden">
+        <h1 className="text-sl md:text-3xl font-semibold ">Now this week</h1>
+
+        <MovieSlider moviesData={moviesData.slice(0, 20)} />
+      </div>
+      <div className="p-4 md:p-8 w-full overflow-hidden">
+        <h1 className="text-sl md:text-3xl font-semibold ">Trending Now</h1>
+
+        <MovieSlider moviesData={moviesData.slice(20, 30)} />
       </div>
     </div>
   );

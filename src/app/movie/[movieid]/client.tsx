@@ -35,7 +35,7 @@ function Client({ movieid }: Props) {
     },
   ];
   return (
-    <div className="relative w-full md:h-[calc(100%-6rem)] h-[calc(100%-4rem)]     ">
+    <div className="relative w-full md:h-[calc(100%-6rem)] h-[calc(100%-4rem)] md:mt-24 mt-10     ">
       <div className=" md:w-3/4 w-full px-2  py-10  mx-auto h-full z-10 relative  flex   flex-col md:flex-row items-center gap-3 overflow-auto pb-20 no-scrollbar  ">
         <div className=" md:py-8  md:pr-8 w-full">
           <div className="text-2xl md:text-5xl font-bold flex gap-2  md:gap-5 items-center ">

@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { ChevronDown, MoreVertical, Search } from "lucide-react";
 import Link from "next/link";
@@ -7,8 +7,30 @@ import Link from "next/link";
 type Props = {};
 
 function Header({}: Props) {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (document.body.scrollTop > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    document.body.addEventListener("scroll", handleScroll);
+
+    return () => {
+      document.body.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex  p-2  md:p-6 items-center w-full justify-between text-font-secondary  fixed top-0  z-50 md:h-24 h-16   ">
+    <div
+      className="flex  p-2  md:p-6 items-center w-full justify-between text-font-secondary  fixed top-0  z-50 md:h-24 h-16"
+      style={{
+        backdropFilter: isScrolled ? "blur(100px)" : "blur(0px)",
+      }}
+    >
       <div className="text-font-secondary flex gap-3 md:gap-10 items-center w-full max-w-[700px]">
         <Link href="/">
           <Image
@@ -26,7 +48,6 @@ function Header({}: Props) {
             className=" md:hidden max-w-[40px]"
           />
         </Link>
-    
       </div>
       {/* <div className="flex  gap-1 md:gap-3 items-center bg-secondary p-2 rounded-3xl cursor-pointer hover:opacity-90 transition-all  duration-200 ease-in-out ">
         {" "}

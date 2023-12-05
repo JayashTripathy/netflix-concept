@@ -12,8 +12,8 @@ function client({}: Props) {
     return watchlist?.includes(movie.imdbid);
   });
   return (
-    <div className=" pb-16 md:pb-0 md:pt-8 h-full overflow-hidden">
-      <div className="w-full  bg-secondary  h-full md:rounded-3xl   md:p-6 pt-4 px-2 flex flex-col  ">
+    <div className=" pb-16 md:pb-0 pt-20 md:pl-24 h-full overflow-hidden">
+      <div className="w-full    h-full md:rounded-3xl   md:p-6 pt-4 px-2 flex flex-col  ">
         <div className=" text-2xl md:text-6xl font-bold md:pb-7 pb-5 flex gap-3 items-center ">
           WatchList
         </div>

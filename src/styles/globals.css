@@ -16,7 +16,7 @@ body {
   width: 100vw;
   box-sizing: border-box;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
 }
 
 body {
@@ -25,14 +25,11 @@ body {
 }
 
 ::-webkit-scrollbar {
-  height: 10px;
-  width: 10px;
-  background: var(--font-secondary);
+ display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: whitesmoke;
-  -webkit-border-radius: 1rem;
+  display: none;
 }
 
 .no-scrollbar::-webkit-scrollbar {
