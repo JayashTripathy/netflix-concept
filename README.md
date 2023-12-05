@@ -1,26 +1,15 @@
-# Character XYZ assignment
+# New homepage that mimics netflix
 
-this project is created as an assignment of characterxyz
+![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/4edad094-410c-41c3-9ad2-53bb2575b497)
 
-__Detailed Document__ - https://github.com/JayashTripathy/netflix-concept/blob/master/document.md
+![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/a5c465e1-94dc-4ca4-92f9-abeb68b4da17)
 
-__Deployed Site__ - https://netflix-concept.vercel.app
+![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/99c7266b-acea-4faa-8107-2c356c324bc9)
 
-## Functionalities 
+![image](https://github.com/JayashTripathy/netflix-concept/assets/76092296/9e52dce7-ad7c-4a2f-9f12-6bdb0472dfc5)
 
-- Server side rendered optimized pages
-- Search engine-optimized pages  
-   ![image](./public/readme/seo.png)
 
-- Minimal and user-friendly UI 
-   ![image](./public/readme/minimal-1.png)
-    ![image](./public/readme/minimal-2.png)
 
-- Fully responsive from mobile to big screens
-    ![image](./public/readme/responsive.png)
-  
-- Watchlist Functionality, can add or remove movies to watchlist
-    ![image](./public/readme/watchlist.png)
 
 
 
